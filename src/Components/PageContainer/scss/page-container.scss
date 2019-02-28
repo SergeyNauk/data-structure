@@ -1,0 +1,13 @@
+.page-container-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 1440px;
+    height: 100%;
+    margin: 0 auto 0 auto;
+
+    .template {
+        padding: 20px;
+        height: 100%;
+        background-color: #FFFAFA;
+    }
+}

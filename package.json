@@ -4,14 +4,19 @@
   "private": true,
   "dependencies": {
     "react": "^16.8.1",
+    "react-burger-menu": "^2.6.5",
     "react-dom": "^16.8.1",
-    "react-scripts": "2.1.5"
+    "react-router-dom": "^4.3.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "npm-run-all -p build-sass watch-sass start-app",
+    "start-app": "react-scripts start",
+    "build": "set NODE_ENV='production' & npm-run-all -p build-sass build-project",
+    "build-project": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "build-sass": "./node_modules/.bin/node-sass src/sass/index.scss -o src/sass-compiled --source-map-embed",
+    "watch-sass": "./node_modules/.bin/node-sass src/sass/index.scss -w -o src/sass-compiled --source-map-embed"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -21,5 +26,10 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "node-sass": "^4.11.0",
+    "npm-run-all": "^4.1.5",
+    "react-scripts": "^2.1.5"
+  }
 }
